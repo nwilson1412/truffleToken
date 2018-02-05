@@ -81,16 +81,20 @@ App = {
       }
 
       var account = accounts[0];
-      console.log(account);
 
-      App.contracts.nathToken.deployed().then(function(instance) {
+      
+      console.log(account);
+      
+
+      App.contracts.NathToken.deployed().then(function(instance) {
         nathTokenInstance = instance;
         console.log(nathTokenInstance.balanceOf(account));
         return nathTokenInstance.balanceOf(account);
       }).then(function(result) {
         balance = result.c[0];
+        console.log(balance);
 
-        $('#TTBalance').text(balance);
+        $('#NTKBalance').text(balance);
       }).catch(function(err) {
         console.log(err.message);
       });
